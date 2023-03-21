@@ -45,6 +45,30 @@ const NavbarComponent = () => {
                   Infra Changes
                 </p>
               </Dropdown.Item>
+              <li tabIndex={0}>
+                <div className="justify-between">
+                  Rekap
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={24}
+                    height={24}
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                  </svg>
+                </div>
+                <ul className="p-2 bg-base-100">
+                  <li>
+                    <p onClick={() => router.push(`/rekap-migrasi`)}>Migrasi</p>
+                  </li>
+                  <li>
+                    <p onClick={() => router.push(`/rekap-infra-changes`)}>
+                      Infra Changes
+                    </p>
+                  </li>
+                </ul>
+              </li>
               <Dropdown.Item>
                 <p onClick={() => router.push(`/users`)}>Users</p>
               </Dropdown.Item>
@@ -90,6 +114,30 @@ const NavbarComponent = () => {
             </Menu.Item>
             <Menu.Item>
               <p onClick={() => router.push(`/infra-changes`)}>Infra Changes</p>
+            </Menu.Item>
+            <Menu.Item tabIndex={0}>
+              <div>
+                Rekap
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={20}
+                  height={20}
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </div>
+              <Menu className="p-2 bg-base-100 lg:z-10 rounded-lg">
+                <Menu.Item>
+                  <p onClick={() => router.push(`/rekap-migrasi`)}>Migrasi</p>
+                </Menu.Item>
+                <Menu.Item>
+                  <p onClick={() => router.push(`/rekap-infra-changes`)}>
+                    Infra Changes
+                  </p>
+                </Menu.Item>
+              </Menu>
             </Menu.Item>
             <Menu.Item>
               <p onClick={() => router.push(`/users`)}>Users</p>
