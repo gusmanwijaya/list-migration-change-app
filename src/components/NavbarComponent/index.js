@@ -45,6 +45,9 @@ const NavbarComponent = () => {
                   Infra Changes
                 </p>
               </Dropdown.Item>
+              <Dropdown.Item>
+                <p onClick={() => router.push(`/users`)}>Users</p>
+              </Dropdown.Item>
               <li tabIndex={0}>
                 <div className="justify-between">
                   Pengaturan
@@ -87,6 +90,9 @@ const NavbarComponent = () => {
             </Menu.Item>
             <Menu.Item>
               <p onClick={() => router.push(`/infra-changes`)}>Infra Changes</p>
+            </Menu.Item>
+            <Menu.Item>
+              <p onClick={() => router.push(`/users`)}>Users</p>
             </Menu.Item>
             <Menu.Item tabIndex={0}>
               <div>

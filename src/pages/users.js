@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-import { Button, Input, Modal, Select, Table, Textarea } from "react-daisyui";
+import { Button, Input, Modal, Select, Table } from "react-daisyui";
+import { useRouter } from "next/router";
 import Swal from "sweetalert2";
 
 import HeadComponent from "@/components/HeadComponent";
 import NavbarComponent from "@/components/NavbarComponent";
 import FooterComponent from "@/components/FooterComponent";
 import GapComponent from "@/components/GapComponent";
-import { useRouter } from "next/router";
 
-export default function InfraChanges() {
+export default function Users() {
   const router = useRouter();
 
   const [disabledButtonTambah, setDisabledButtonTambah] = useState(false);
@@ -51,13 +51,6 @@ export default function InfraChanges() {
         <div className="flex flex-col space-y-2 lg:space-y-0 lg:flex-row lg:space-x-2">
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Tanggal</span>
-            </label>
-            <Input name="date" type="date" />
-          </div>
-
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
               <span className="label-text">Cari</span>
             </label>
             <Input name="search" type="search" />
@@ -86,30 +79,15 @@ export default function InfraChanges() {
                   />
                 </svg>
               </span>
-              <span>Hari</span>
-              <span>Tanggal</span>
-              <span>Ticket request</span>
-              <span>Summary</span>
-              <span>Description</span>
-              <span>Mitigasi</span>
-              <span>IT Owner PIC</span>
-              <span>Keputusan</span>
-              <span>PIC IGW</span>
-              <span>Start date</span>
-              <span>End date</span>
-              <span>Start time</span>
-              <span>Finish time</span>
-              <span>Status (In Progress, Success, Reschedule, Rollback)</span>
-              <span>Zona (Zona 1, Zona 2, Zona 3, Zona 4)</span>
-              <span>Status BAST</span>
-              <span>Link BAST</span>
+              <span>Nama</span>
+              <span>Username</span>
+              <span>Email address</span>
+              <span>Role</span>
             </Table.Head>
 
             <Table.Body>
               <Table.Row>
                 <span className="flex flex-row justify-center items-center space-x-4">
-                  <p>2809</p>
-
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -142,41 +120,17 @@ export default function InfraChanges() {
                     />
                   </svg>
                 </span>
-                <span>Monday</span>
                 <span>Cy Ganderton</span>
-                <span>Quality Control Specialist</span>
+                <span className="max-w-md whitespace-nowrap">
+                  Quality Control Specialist
+                </span>
                 <span>Littel, Schaden and Vandervort</span>
                 <span>Canada</span>
-                <span>12/16/2020</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Blue</span>
-                <span>Link</span>
               </Table.Row>
             </Table.Body>
 
             <Table.Footer>
-              <span>Total infra changes : 10</span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span>Total users : 10</span>
               <span></span>
               <span></span>
               <span></span>
@@ -194,74 +148,54 @@ export default function InfraChanges() {
           <div className="flex flex-col w-full component-preview p-4 items-center justify-center gap-2">
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Tanggal</span>
+                <span className="label-text">Nama</span>
               </label>
-              <Input name="date" type="date" required />
+              <Input name="name" type="text" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Ticket request</span>
+                <span className="label-text">Username</span>
               </label>
-              <Input name="ticket_request" type="text" required />
+              <Input name="username" type="text" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Summary</span>
+                <span className="label-text">Password</span>
               </label>
-              <Textarea name="summary" required />
+              <Input name="password" type="password" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text">Email address</span>
               </label>
-              <Textarea name="description" required />
+              <Input name="email_adress" type="email" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Mitigasi</span>
-              </label>
-              <Textarea name="mitigation" required />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">IT PIC Owner</span>
-              </label>
-              <Input name="it_pic_owner" type="text" required />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Keputusan</span>
+                <span className="label-text">Role</span>
               </label>
               <Select
-                name="decision"
+                name="role"
                 // value={value}
                 // onChange={(event) => setValue(event.target.value)}
               >
-                <option value={""}>Pilih keputusan</option>
-                <option value={"RCB-C"}>RCB-C</option>
-                <option value={"RCB-B"}>RCB-B</option>
-                <option value={"RCB-A"}>RCB-A</option>
+                <option value={""}>Pilih role user</option>
+                <option value={"admin"}>Admin</option>
+                <option value={"operator"}>Operator</option>
+                <option value={"team_leader"}>Team Leader</option>
+                <option value={"engineer"}>Engineer</option>
               </Select>
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">PIC IGW</span>
-              </label>
-              <Input name="pic_igw" type="text" />
             </div>
 
             <GapComponent height={10} />
 
             <div className="form-control w-full max-w-md">
               <Button
-                onClick={() => router.push(`/infra-changes`)}
+                onClick={() => router.push(`/users`)}
                 className={`capitalize text-white ${
                   disabledButtonTambah && "cursor-not-allowed"
                 }`}
@@ -307,166 +241,54 @@ export default function InfraChanges() {
           <div className="flex flex-col w-full component-preview p-4 items-center justify-center gap-2">
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Tanggal</span>
+                <span className="label-text">Nama</span>
               </label>
-              <Input name="date" type="date" required />
+              <Input name="name" type="text" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Ticket request</span>
+                <span className="label-text">Username</span>
               </label>
-              <Input name="ticket_request" type="text" required />
+              <Input name="username" type="text" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Summary</span>
+                <span className="label-text">Password</span>
               </label>
-              <Textarea name="summary" required />
+              <Input name="password" type="password" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text">Email address</span>
               </label>
-              <Textarea name="description" required />
+              <Input name="email_adress" type="email" required />
             </div>
 
             <div className="form-control w-full max-w-md">
               <label className="label">
-                <span className="label-text">Mitigasi</span>
-              </label>
-              <Textarea name="mitigation" required />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">IT PIC Owner</span>
-              </label>
-              <Input name="it_pic_owner" type="text" required />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Keputusan</span>
+                <span className="label-text">Role</span>
               </label>
               <Select
-                name="decision"
+                name="role"
                 // value={value}
                 // onChange={(event) => setValue(event.target.value)}
               >
-                <option value={""}>Pilih keputusan</option>
-                <option value={"RCB-C"}>RCB-C</option>
-                <option value={"RCB-B"}>RCB-B</option>
-                <option value={"RCB-A"}>RCB-A</option>
+                <option value={""}>Pilih role user</option>
+                <option value={"admin"}>Admin</option>
+                <option value={"operator"}>Operator</option>
+                <option value={"team_leader"}>Team Leader</option>
+                <option value={"engineer"}>Engineer</option>
               </Select>
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">PIC IGW</span>
-              </label>
-              <Input name="pic_igw" type="text" />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Start date</span>
-              </label>
-              <Input name="start_date" type="date" />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">End date</span>
-              </label>
-              <Input name="end_date" type="date" />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Start time</span>
-              </label>
-              <Input name="start_time" type="time" />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Finish time</span>
-              </label>
-              <Input name="finish_time" type="time" />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Status</span>
-              </label>
-              <Select
-                name="status"
-                // value={value}
-                // onChange={(event) => setValue(event.target.value)}
-              >
-                <option value={""}>Pilih status</option>
-                <option value={"In Progress"}>In Progress</option>
-                <option value={"Success"}>Success</option>
-                <option value={"Reschedule"}>Reschedule</option>
-                <option value={"Rollback"}>Rollback</option>
-              </Select>
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Catatan</span>
-              </label>
-              <Textarea name="notes" required />
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Zona</span>
-              </label>
-              <Select
-                name="status"
-                // value={value}
-                // onChange={(event) => setValue(event.target.value)}
-              >
-                <option value={""}>Pilih zona</option>
-                <option value={"Zona 1"}>Zona 1</option>
-                <option value={"Zona 2"}>Zona 2</option>
-                <option value={"Zona 3"}>Zona 3</option>
-                <option value={"Zona 4"}>Zona 4</option>
-              </Select>
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Status BAST</span>
-              </label>
-              <Select
-                name="status_ba"
-                // value={value}
-                // onChange={(event) => setValue(event.target.value)}
-              >
-                <option value={""}>Pilih status</option>
-                <option value={"Not Yet"}>Not Yet</option>
-                <option value={"In Progress"}>In Progress</option>
-                <option value={"Done"}>Done</option>
-              </Select>
-            </div>
-
-            <div className="form-control w-full max-w-md">
-              <label className="label">
-                <span className="label-text">Link BAST</span>
-              </label>
-              <Textarea name="path_ba" />
             </div>
 
             <GapComponent height={10} />
 
             <div className="form-control w-full max-w-md">
               <Button
-                onClick={() => router.push(`/infra-changes`)}
+                onClick={() => router.push(`/users`)}
                 className={`capitalize text-white ${
                   disabledButtonUbah && "cursor-not-allowed"
                 }`}
